@@ -46,9 +46,14 @@
 	<script>
 		//this forces javascript to conform to some rules, like declaring variables with var
 		"use strict";
-	  	var url = "http://www.espn.com/espn/rss/NHL/news";
+		var url1 = "http://www.espn.com/espn/rss/NHL/news";
+		var url2 = "http://www.espn.com/espn/rss/NFL/news";
+		var url3 = "http://www.espn.com/espn/rss/NBA/news";
+		var html = "";
 		window.onload = function(){
-			init(url);
+			init(url1);
+			init(url2);
+			init(url3);
 		}
 
 
@@ -61,7 +66,7 @@
 			$("#content").fadeOut(250);
 			//fetch the data
 			$.get(url).done(function(data){xmlLoaded(data);});
-			alert(data);
+			// alert(data);
 		}
 		
 		
@@ -77,7 +82,7 @@
 			$("#logo").attr("src",logoSrc);
 			
 			//parse the data
-			var html = "";
+			
 			for (var i=0;i<items.length;i++){
 				//get the data out of the item
 				var newsItem = items[i];
