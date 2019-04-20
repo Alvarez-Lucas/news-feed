@@ -53,11 +53,11 @@
 		var html = "";
 		window.onload = function(){
 			initHelper([url1, url2, url3]);
-			previousVisit();
+			previousVisit(); 
 			accountLoggedOff();
 		}
 
-		// 
+		// FILTERS RSS FEEDS
 		// https://www.includehelp.com/code-snippets/javascript-print-value-of-all-checked-selected-checkboxes.aspx
 		function filterResults(){
 			console.log("Filter Started");
@@ -85,7 +85,7 @@
 			
 		}	
 
-
+		// ACCEPTS AN ARRAY OF URLS TO LOAD 
 		function initHelper(urls) {
 			html = "";
 			for (var i = 0; i < urls.length; i++) {
@@ -93,7 +93,7 @@
 			}
 		}
 
-
+		// LOAD RSS FEEDS
 		function init(url){
 			//NHL URL for ESPN RSS feed
 			console.log("Entering Init");	
@@ -107,7 +107,7 @@
 		}
 		
 
-
+		// LOAD RSS FEEDS
 		function xmlLoaded(obj){
 			console.log("obj = " +obj);
 
@@ -147,15 +147,15 @@
 		}	
 
 
+		// MANAGE SIGN IN / SIGN OUT
 		function accountLoggedIn() {
 			document.getElementById("account").innerHTML = "<button class=\"btn btn-default btn-rounded mb-4\" type=\"button\" onclick=\"accountLoggedOff()\">Sign Out</button>";
 		}
-
 		function accountLoggedOff() {
 			document.getElementById("account").innerHTML = "<a href=\"\" class=\"btn btn-default btn-rounded mb-4\" data-toggle=\"modal\" data-target=\"#modalCreateAccountForm\">Create Account</a> <a href=\"\" class=\"btn btn-default btn-rounded mb-4\" data-toggle=\"modal\" data-target=\"#modalLoginForm\">Log In</a>";
 		}
 		
-		// previous visit
+		// PREVIOUS VISITS
 		function previousVisit() {
 			if(localStorage){
 			$(document).ready(function(){
@@ -176,7 +176,7 @@
 		}
 		}
 	  
-		
+		// CREATE ACCOUNTS
 		if(localStorage){
 			$(document).ready(function(){
 				$(".save").click(function(){
@@ -219,7 +219,9 @@
 </head>
 <body>
 
+	<!--------------------------- Header and Account sign in/sign out  --------------------------->
 	<div id="header" >
+
 		<img id="logo" /><h1>Hockey News</h1> 
 
 		<div id="account">
@@ -230,7 +232,7 @@
 
 
 	
-	<!-- Create Account -->
+	<!------------------------------------- Create Account ------------------------------------->
 	<div class="modal fade" id="modalCreateAccountForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -259,7 +261,7 @@
 		</div>
 	</div>
 
-	<!-- Log in -->
+	<!------------------------------------- Log in ------------------------------------->
 	<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -288,6 +290,7 @@
 			</div>
 		</div>
 
+	<!------------------------------------- Filter Results ------------------------------------->
 	<div class="form-check form-check-inline">
 		<input class="form-check-input" type="checkbox" name="filter" id="inlineCheckbox1" value="http://www.espn.com/espn/rss/NHL/news" onclick="filterResults()" checked> 
 		<label class="form-check-label" for="inlineCheckbox1">NHL</label>
@@ -301,14 +304,12 @@
 		<label class="form-check-label" for="inlineCheckbox3">NBA</label>
 	</div>
 
-	<!-- <button type="button" onclick="accountLoggedOff()">Sign Out</button> -->
-
-
+	<!------------------------------------- Actual News Feed ------------------------------------->
 	<div id="content">
 		<p>No data has been loaded.</p>
 	</div>
 
-
+	<!------------------------------------- Previous Visit Time ------------------------------------->
 	<div id="previousVisitTimeAndDate">
 		<p>Your browser does not support local storage.</p>
 	</div>
